@@ -156,21 +156,6 @@
     @apply fintech-button bg-fintech-secondary text-white hover:bg-fintech-secondary/90 shadow-lg shadow-fintech-secondary/25;
   }
 
-  input:-webkit-autofill {
-    -webkit-box-shadow: inset 0 0 0px 9999px white;
-}
-input:-webkit-autofill:focus {
-    -webkit-box-shadow:0 0 0 50px white inset;
-}
-  input:-webkit-autofill,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:active {
-    background-color: #f8fafc !important;
-    -webkit-box-shadow: 0 0 0 1000px #f8fafc inset !important;
-    color: #2D3436 !important;
-    transition: background-color 5000s ease-in-out 0s;
-  }
   .dark input:-webkit-autofill,
   .dark input:-webkit-autofill:focus,
   .dark input:-webkit-autofill:hover,
@@ -182,15 +167,18 @@ input:-webkit-autofill:focus {
   }
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px #f5f3ff inset !important;
-  box-shadow: 0 0 0 1000px #f5f3ff inset !important;
-  -webkit-text-fill-color: #22223B !important;
-  color: #22223B !important;
-  transition: background-color 5000s ease-in-out 0s;
+/* Autofill fix: Use fintech text color and background for autofill, as per user request */
+@layer utilities {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #F8F9FA inset !important; /* Your input bg */
+    box-shadow: 0 0 0 1000px #F8F9FA inset !important;
+    -webkit-text-fill-color: #2D3436 !important; /* Your text color */
+    border: 1px solid #6C5CE7 !important; /* Optional: match your primary border */
+    transition: background-color 9999s ease-in-out 0s !important;
+  }
 }
 
 /* Remove or comment out glass-bg background elements and their styles */
