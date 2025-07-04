@@ -104,14 +104,15 @@
     @apply bg-white rounded-xl shadow-lg border border-gray-100/50 backdrop-blur-sm;
   }
 
-  .fintech-input {
+  .fintech-input, select.fintech-input {
     @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-fintech-primary/20 focus:border-fintech-primary transition-all duration-200 backdrop-blur-sm;
     background: rgba(255,255,255,0.6);
     box-shadow: 0 2px 8px 0 rgba(108,92,231,0.08) inset;
     border-radius: 1rem;
     font-size: 1.05rem;
+    color: #22223B;
   }
-  .fintech-input:focus {
+  .fintech-input:focus, select.fintech-input:focus {
     background: rgba(255,255,255,0.85);
     box-shadow: 0 0 0 3px #a29bfe33, 0 2px 8px 0 rgba(108,92,231,0.08) inset;
     outline: none;
@@ -134,6 +135,13 @@
   }
   .dark .fintech-input {
     background: hsl(var(--card));
+  }
+  .dark .fintech-input, .dark select.fintech-input {
+    color: #fff;
+  }
+  .fintech-input::placeholder, select.fintech-input::placeholder {
+    color: #6C5CE7;
+    opacity: 0.85;
   }
 
   .fintech-button {
@@ -250,4 +258,38 @@ input:-webkit-autofill:active {
 .dark .DialogContent-root {
   background: #6C5CE7 !important; /* Primary for dark mode */
   color: hsl(var(--card-foreground)) !important;
+}
+
+select.fintech-input {
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 2px 8px 0 rgba(108,92,231,0.08) inset;
+  border-radius: 1rem;
+  font-size: 1.05rem;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  transition: box-shadow 0.2s, background 0.2s;
+  position: relative;
+}
+select.fintech-input:focus {
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 0 0 3px #a29bfe33, 0 2px 8px 0 rgba(108,92,231,0.08) inset;
+  border-color: #6C5CE7;
+}
+select.fintech-input::-ms-expand {
+  display: none;
+}
+
+/* Optional: Add a chevron-down icon for selects */
+.select-chevron {
+  pointer-events: none;
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a29bfe;
+  font-size: 1.1rem;
 }

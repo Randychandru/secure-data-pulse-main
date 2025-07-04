@@ -648,37 +648,43 @@ const Dashboard = () => {
       </div>
 
       <Dialog open={showNotifications} onOpenChange={setShowNotifications}>
-        <DialogContent className="max-w-sm">
-          <DialogHeader>
-            <DialogTitle>Notifications</DialogTitle>
-            <DialogDescription>Recent updates and alerts</DialogDescription>
-          </DialogHeader>
-          <div className="divide-y divide-slate-100">
-            {notifications.map((n) => (
-              <div key={n.id} className="py-3">
-                <div className="font-medium text-slate-800">{n.title}</div>
-                <div className="text-sm text-slate-600">{n.description}</div>
-                <div className="text-xs text-slate-400 mt-1">{n.time}</div>
-              </div>
-            ))}
+        <DialogContent className="max-w-sm fintech-card glass-card shadow-2xl p-0">
+          <div className="h-1 w-full bg-gradient-to-r from-fintech-primary via-fintech-secondary to-fintech-primary rounded-t-xl" />
+          <div className="p-6">
+            <DialogHeader>
+              <DialogTitle className="text-lg font-bold text-fintech-text">Notifications</DialogTitle>
+              <DialogDescription className="text-fintech-primary font-medium">Recent updates and alerts</DialogDescription>
+            </DialogHeader>
+            <div className="divide-y divide-slate-100 mt-4">
+              {notifications.map((n) => (
+                <div key={n.id} className="py-3">
+                  <div className="font-semibold text-fintech-text">{n.title}</div>
+                  <div className="text-sm text-gray-700 font-medium opacity-90">{n.description}</div>
+                  <div className="text-xs text-slate-400 mt-1">{n.time}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </DialogContent>
       </Dialog>
 
       <Dialog open={showSettings} onOpenChange={setShowSettings}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>Settings</DialogTitle>
-            <DialogDescription>Manage your account settings</DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div>
-              <div className="font-medium text-slate-800 mb-1">Change Password</div>
-              <Button variant="outline" size="sm" className="w-full" onClick={() => alert('Change password feature coming soon!')}>Change Password</Button>
-            </div>
-            <div>
-              <div className="font-medium text-slate-800 mb-1">Notification Preferences</div>
-              <Button variant="outline" size="sm" className="w-full" onClick={() => alert('Notification preferences feature coming soon!')}>Edit Preferences</Button>
+        <DialogContent className="max-w-md fintech-card glass-card shadow-2xl p-0">
+          <div className="h-1 w-full bg-gradient-to-r from-fintech-primary via-fintech-secondary to-fintech-primary rounded-t-xl" />
+          <div className="p-8">
+            <DialogHeader>
+              <DialogTitle className="text-lg font-bold text-fintech-text">Settings</DialogTitle>
+              <DialogDescription className="text-fintech-primary font-medium">Manage your account settings</DialogDescription>
+            </DialogHeader>
+            <div className="space-y-4 mt-4">
+              <div>
+                <div className="font-semibold text-fintech-text mb-1">Change Password</div>
+                <Button variant="outline" size="sm" className="w-full" onClick={() => alert('Change password feature coming soon!')}>Change Password</Button>
+              </div>
+              <div>
+                <div className="font-semibold text-fintech-text mb-1">Notification Preferences</div>
+                <Button variant="outline" size="sm" className="w-full" onClick={() => alert('Notification preferences feature coming soon!')}>Edit Preferences</Button>
+              </div>
             </div>
           </div>
         </DialogContent>

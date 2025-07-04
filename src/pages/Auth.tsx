@@ -222,7 +222,7 @@ const Auth = () => {
                               value={phone}
                               onChange={e => setPhone(e.target.value)}
                               placeholder="Enter your number with country code"
-                              className="pl-10"
+                              className="fintech-input pl-10"
                               disabled={isLoading}
                             />
                           </div>
@@ -247,7 +247,7 @@ const Auth = () => {
                               onChange={e => setOtp(e.target.value)}
                               placeholder="6-digit code"
                               maxLength={6}
-                              className="pl-10 tracking-widest"
+                              className="fintech-input pl-10 tracking-widest"
                               disabled={isLoading}
                             />
                           </div>

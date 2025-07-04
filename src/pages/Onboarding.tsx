@@ -279,7 +279,7 @@ const Onboarding = () => {
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                    <div className="space-y-2 relative">
                       <Label htmlFor="accountType">Account Type</Label>
                       <select
                         id="accountType"
@@ -289,8 +289,11 @@ const Onboarding = () => {
                         <option value="business">Business</option>
                         <option value="premium">Premium</option>
                       </select>
+                      <span className="select-chevron">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#a29bfe" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </span>
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 relative">
                       <Label htmlFor="preferredCurrency">Preferred Currency</Label>
                       <select
                         id="preferredCurrency"
@@ -301,6 +304,9 @@ const Onboarding = () => {
                         <option value="EUR">Euro (€)</option>
                         <option value="GBP">British Pound (£)</option>
                       </select>
+                      <span className="select-chevron">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#a29bfe" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </span>
                     </div>
                   </div>
                 </div>
