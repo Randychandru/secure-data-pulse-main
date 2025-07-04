@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -111,6 +111,7 @@ const Dashboard = () => {
   const [notifications, setNotifications] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -220,7 +221,7 @@ const Dashboard = () => {
                 className="text-slate-600 hover:text-red-600 hover:bg-red-50"
                 onClick={async () => {
                   await signOut(auth);
-                  window.location.href = "/auth";
+                  navigate("/auth");
                 }}
               >
                 <LogOut className="w-5 h-5" />
