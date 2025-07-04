@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 249 250;
+    --foreground: 45 52 54;
+
+    --card: 255 255 255;
+    --card-foreground: 45 52 54;
+
+    --popover: 255 255 255;
+    --popover-foreground: 45 52 54;
+
+    --primary: 263 57 88;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 163 177 138;
+    --secondary-foreground: 255 255 255;
+
+    --muted: 248 249 250;
+    --muted-foreground: 125 135 156;
+
+    --accent: 162 155 254; /* Soft purple */
+    --accent-foreground: 45 52 54;
+
+    --destructive: 6 62 55;
+    --destructive-foreground: 255 255 255;
+
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 263 57 88;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 248 249 250;
+    --sidebar-foreground: 45 52 54;
+    --sidebar-primary: 263 57 88;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 248 249 250;
+    --sidebar-accent-foreground: 45 52 54;
+    --sidebar-border: 229 231 235;
+    --sidebar-ring: 263 57 88;
+  }
+
+  .dark {
+    --background: 45 52 54;
+    --foreground: 248 249 250;
+
+    --card: 55 63 71;
+    --card-foreground: 248 249 250;
+
+    --popover: 55 63 71;
+    --popover-foreground: 248 249 250;
+
+    --primary: 162 155 254;
+    --primary-foreground: 45 52 54;
+
+    --secondary: 85 239 196;
+    --secondary-foreground: 45 52 54;
+
+    --muted: 55 63 71;
+    --muted-foreground: 125 135 156;
+
+    --accent: 108 92 231; /* #6C5CE7, soft purple for dark mode */
+    --accent-foreground: 248 249 250;
+
+    --destructive: 225 112 85;
+    --destructive-foreground: 248 249 250;
+
+    --border: 75 85 99;
+    --input: 75 85 99;
+    --ring: 162 155 254;
+    
+    --sidebar-background: 45 52 54;
+    --sidebar-foreground: 248 249 250;
+    --sidebar-primary: 162 155 254;
+    --sidebar-primary-foreground: 45 52 54;
+    --sidebar-accent: 55 63 71;
+    --sidebar-accent-foreground: 248 249 250;
+    --sidebar-border: 75 85 99;
+    --sidebar-ring: 162 155 254;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .fintech-gradient {
+    background: linear-gradient(135deg, #6C5CE7 0%, #A29BFE 100%);
+  }
+
+  .fintech-card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-100/50 backdrop-blur-sm;
+  }
+
+  .fintech-input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-fintech-primary/20 focus:border-fintech-primary transition-all duration-200 backdrop-blur-sm;
+    background: rgba(255,255,255,0.6);
+    box-shadow: 0 2px 8px 0 rgba(108,92,231,0.08) inset;
+    border-radius: 1rem;
+    font-size: 1.05rem;
+  }
+  .fintech-input:focus {
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 0 0 3px #a29bfe33, 0 2px 8px 0 rgba(108,92,231,0.08) inset;
+    outline: none;
+    transition: box-shadow 0.2s, background 0.2s;
+  }
+  .fintech-input.border-red-500 {
+    border-color: #e17055 !important;
+    box-shadow: 0 0 0 2px #e1705533;
+  }
+  .fintech-input.border-green-500 {
+    border-color: #00b894 !important;
+    box-shadow: 0 0 0 2px #00b89433;
+  }
+  .animate-fade-in {
+    animation: fade-in 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(16px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .dark .fintech-input {
+    background: hsl(var(--card));
+  }
+
+  .fintech-button {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+
+  .fintech-button-primary {
+    @apply fintech-button bg-fintech-primary text-white hover:bg-fintech-primary/90 shadow-lg shadow-fintech-primary/25;
+  }
+
+  .fintech-button-secondary {
+    @apply fintech-button bg-fintech-secondary text-white hover:bg-fintech-secondary/90 shadow-lg shadow-fintech-secondary/25;
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0px 9999px white;
+}
+input:-webkit-autofill:focus {
+    -webkit-box-shadow:0 0 0 50px white inset;
+}
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active {
+    background-color: #f8fafc !important;
+    -webkit-box-shadow: 0 0 0 1000px #f8fafc inset !important;
+    color: #2D3436 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  .dark input:-webkit-autofill,
+  .dark input:-webkit-autofill:focus,
+  .dark input:-webkit-autofill:hover,
+  .dark input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px hsl(var(--card)) inset !important;
+    box-shadow: 0 0 0 1000px hsl(var(--card)) inset !important;
+    -webkit-text-fill-color: hsl(var(--card-foreground)) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #f5f3ff inset !important;
+  box-shadow: 0 0 0 1000px #f5f3ff inset !important;
+  -webkit-text-fill-color: #22223B !important;
+  color: #22223B !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.glass-bg {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  z-index: 0;
+}
+.glass-bg.bg1 {
+  width: 400px; height: 400px; left: -100px; top: -100px; background: #6C5CE7;
+}
+.glass-bg.bg2 {
+  width: 300px; height: 300px; right: -80px; top: 200px; background: #00B894;
+}
+.glass-bg.bg3 {
+  width: 250px; height: 250px; left: 50%; bottom: -120px; background: #A29BFE;
+}
+
+.glass-card, .fintech-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.bold-cta, .fintech-button-primary, .fintech-button-secondary {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  padding: 0.85rem 2.5rem;
+  background: linear-gradient(90deg, #6C5CE7 0%, #00B894 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px 0 rgba(108,92,231,0.18);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+  text-transform: uppercase;
+}
+.bold-cta:hover, .fintech-button-primary:hover, .fintech-button-secondary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(108,92,231,0.25);
+  background: linear-gradient(90deg, #00B894 0%, #6C5CE7 100%);
+}
+.bold-cta:active, .fintech-button-primary:active, .fintech-button-secondary:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px 0 rgba(108,92,231,0.18);
+}
+
+/* Dialog background override for all dialogs */
+[data-state="open"].dialog-content,
+.dialog-content,
+.DialogContent,
+.DialogContent-root {
+  background: #A29BFE !important; /* Soft purple for light mode */
+  color: hsl(var(--foreground)) !important;
+}
+.dark [data-state="open"].dialog-content,
+.dark .dialog-content,
+.dark .DialogContent,
+.dark .DialogContent-root {
+  background: #6C5CE7 !important; /* Primary for dark mode */
+  color: hsl(var(--card-foreground)) !important;
+}
