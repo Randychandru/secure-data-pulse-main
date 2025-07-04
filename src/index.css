@@ -185,6 +185,8 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+/* Remove or comment out glass-bg background elements and their styles */
+/*
 .glass-bg {
   position: absolute;
   border-radius: 50%;
@@ -201,6 +203,7 @@ input:-webkit-autofill:active {
 .glass-bg.bg3 {
   width: 250px; height: 250px; left: 50%; bottom: -120px; background: #A29BFE;
 }
+*/
 
 .glass-card, .fintech-card {
   background: rgba(255,255,255,0.7);

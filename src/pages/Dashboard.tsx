@@ -241,7 +241,10 @@ const Dashboard = () => {
               <p className="text-slate-600">Here's what's happening with your financial data today.</p>
             </div>
             <div className="flex items-center space-x-3">
-              <Button variant="outline" size="sm" onClick={() => alert("Export feature coming soon!")}>
+              <Button
+                className="bold-cta"
+                onClick={() => alert("Export feature coming soon!")}
+              >
                 <Download className="w-4 h-4 mr-2" />
                 Export
               </Button>
@@ -605,8 +608,10 @@ const Dashboard = () => {
                     </div>
                   ))}
                 </div>
-                <Button variant="outline" className="w-full mt-4 hover:bg-slate-50"
-                  onClick={() => alert("View All Transactions feature coming soon!")}>
+                <Button
+                  className="bold-cta w-full mt-4"
+                  onClick={() => alert("View All Transactions feature coming soon!")}
+                >
                   View All Transactions
                 </Button>
               </CardContent>
@@ -628,9 +633,11 @@ const Dashboard = () => {
                   <User className="w-4 h-4 mr-3" />
                   Update Profile
                 </Button>
-                <Button variant="outline" className="w-full justify-start hover:bg-slate-50 border-slate-200"
-                  onClick={() => alert("Export Analytics feature coming soon!")}>
-                  <BarChart3 className="w-4 h-4 mr-3" />
+                <Button
+                  className="bold-cta w-full flex items-center justify-start bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg hover:from-purple-600 hover:to-blue-600"
+                  onClick={() => alert("Export Analytics feature coming soon!")}
+                >
+                  <Download className="w-4 h-4 mr-3" />
                   Export Analytics
                 </Button>
               </CardContent>
@@ -675,9 +682,6 @@ const Dashboard = () => {
           </div>
         </DialogContent>
       </Dialog>
-      <div className="glass-bg bg1"></div>
-      <div className="glass-bg bg2"></div>
-      <div className="glass-bg bg3"></div>
     </div>
   );
 };
