@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, KeyRound, LogIn, Mail, Smartphone, Shield, ArrowLeft } from "lucide-react";
+import { getApiUrl } from "@/config/api";
 
 declare global {
   interface Window {
@@ -68,7 +69,7 @@ const Auth = () => {
     }
     try {
       // Call our custom OTP API
-      const response = await fetch("https://secure-data-pulse-main-2.onrender.com/api/send-otp", {
+      const response = await fetch(getApiUrl('/api/send-otp'), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +103,7 @@ const Auth = () => {
     setIsLoading(true);
     try {
       // Call our custom OTP verification API
-      const response = await fetch("https://secure-data-pulse-main-2.onrender.com/api/verify-otp", {
+      const response = await fetch(getApiUrl('/api/verify-otp'), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
