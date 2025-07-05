@@ -68,7 +68,7 @@ const Auth = () => {
     }
     try {
       // Call our custom OTP API
-      const response = await fetch("http://localhost:5000/api/send-otp", {
+      const response = await fetch("https://secure-data-pulse-main-2.onrender.com/api/send-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +102,7 @@ const Auth = () => {
     setIsLoading(true);
     try {
       // Call our custom OTP verification API
-      const response = await fetch("http://localhost:5000/api/verify-otp", {
+      const response = await fetch("https://secure-data-pulse-main-2.onrender.com/api/verify-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

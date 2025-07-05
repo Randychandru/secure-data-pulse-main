@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'https://secure-data-pulse-main-1.onrender.com',
+  origin: ['https://secure-data-pulse-main-2.onrender.com', 'https://secure-data-pulse-main-1.onrender.com'],
   credentials: true
 }));
 app.use(express.json());
