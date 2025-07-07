@@ -416,38 +416,55 @@ const Onboarding = () => {
               )}
 
               {/* Navigation Buttons */}
-              <div className="flex justify-between pt-6">
+              <div className="pt-6 flex flex-col gap-3">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={() => setCurrentStep(Math.max(1, currentStep - 1))}
                   disabled={currentStep === 1}
-                  className="flex items-center space-x-2 bold-cta"
+                  className="bold-cta w-full"
                 >
-                  <ArrowLeft className="w-4 h-4" />
-                  <span>Previous</span>
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  {currentStep === 1 ? "Back" : "Previous"}
                 </Button>
-                <Button
-                  onClick={handleNext}
-                  disabled={isLoading}
-                  className="bold-cta flex items-center space-x-2"
-                >
-                  {isLoading ? (
-                    <div className="flex items-center space-x-2">
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span>Creating Account...</span>
-                    </div>
-                  ) : (
-                    <>
-                      <span>{currentStep === totalSteps ? "Create Account" : "Next"}</span>
-                      {currentStep === totalSteps ? (
-                        <CheckCircle className="w-4 h-4" />
-                      ) : (
-                        <ArrowRight className="w-4 h-4" />
-                      )}
-                    </>
-                  )}
-                </Button>
+                {currentStep === totalSteps ? (
+                  <Button
+                    onClick={handleNext}
+                    disabled={isLoading}
+                    className="w-full py-3 text-lg font-bold rounded-xl shadow-lg bg-gradient-to-r from-fintech-primary to-fintech-secondary text-white flex items-center justify-center transition-all duration-200 hover:scale-[1.02] hover:shadow-xl"
+                    style={{ letterSpacing: "0.03em" }}
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                        Creating...
+                      </>
+                    ) : (
+                      <>
+                        Create Account
+                        <CheckCircle className="w-5 h-5 ml-2" />
+                      </>
+                    )}
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={handleNext}
+                    disabled={isLoading}
+                    className="bold-cta w-full"
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                        Loading...
+                      </>
+                    ) : (
+                      <>
+                        Next
+                        <ArrowRight className="w-5 h-5 ml-2" />
+                      </>
+                    )}
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>

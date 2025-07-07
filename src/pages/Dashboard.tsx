@@ -133,7 +133,11 @@ const Dashboard = () => {
           setTransactions(userData.transactions ? safeEntriesToArray(Object.entries(userData.transactions)) : []);
           setNotifications(userData.notifications ? safeEntriesToArray(Object.entries(userData.notifications)) : []);
         } catch (err) {
-          setError("Failed to load user data.");
+          console.error("Firebase connection error:", err);
+          setError("Failed to load user data. Please check your connection.");
+          // Set default data if Firebase fails
+          setPersonalInfo(defaultUserData(firebaseUser).personalInfo);
+          setStats(defaultUserData(firebaseUser).stats);
         }
         setLoading(false);
       }
