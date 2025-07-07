@@ -17,7 +17,7 @@ Set these in your Render backend service:
 - `ALLOWED_ORIGINS` - Comma-separated list of frontend URLs (e.g., `https://your-frontend-url.onrender.com,http://localhost:3000`)
 
 ### Optional:
-- `NUMVERIFY_API_KEY` - For phone number validation (optional)
+
 - `PORT` - Automatically set by Render
 
 ## Frontend Environment Variables (Render)

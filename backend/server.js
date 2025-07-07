@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const admin = require('firebase-admin');
-const fetch = require('node-fetch');
 require('dotenv').config();
 
 const app = express();
@@ -53,40 +52,9 @@ const validateIndianPhone = (phone) => {
   return indianPhonePattern.test(phone);
 };
 
-// Validate phone number with NumVerify (if API key is provided)
-const validatePhoneWithNumVerify = async (phoneNumber) => {
-  if (!process.env.NUMVERIFY_API_KEY) {
-    // If no NumVerify API key, just validate format
-    return { valid: validateIndianPhone(phoneNumber), error: null };
-  }
-
-  try {
-    const response = await fetch(
-      `http://apilayer.net/api/validate?access_key=${process.env.NUMVERIFY_API_KEY}&number=${phoneNumber}`
-    );
-    const data = await response.json();
-    
-    if (data.valid && data.line_type === "mobile") {
-      return { 
-        valid: true, 
-        carrier: data.carrier,
-        country: data.country_name,
-        error: null 
-      };
-    } else {
-      return { 
-        valid: false, 
-        error: "Invalid phone number or not a mobile number" 
-      };
-    }
-  } catch (error) {
-    console.error('NumVerify API error:', error);
-    // Fallback to basic validation if NumVerify fails
-    return { 
-      valid: validateIndianPhone(phoneNumber), 
-      error: null 
-    };
-  }
+// Validate phone number format
+const validatePhoneNumber = (phoneNumber) => {
+  return { valid: validateIndianPhone(phoneNumber), error: null };
 };
 
 // Health check endpoint
@@ -109,7 +77,7 @@ app.post('/api/send-otp', async (req, res) => {
     const cleanedPhone = cleanPhoneNumber(phone);
     
     // Validate phone number
-    const validation = await validatePhoneWithNumVerify(cleanedPhone);
+    const validation = validatePhoneNumber(cleanedPhone);
     if (!validation.valid) {
       return res.status(400).json({ 
         success: false, 
@@ -313,7 +281,7 @@ app.post('/api/validate-phone', async (req, res) => {
     }
 
     const cleanedPhone = cleanPhoneNumber(phone);
-    const validation = await validatePhoneWithNumVerify(cleanedPhone);
+    const validation = validatePhoneNumber(cleanedPhone);
     
     res.json({
       valid: validation.valid,

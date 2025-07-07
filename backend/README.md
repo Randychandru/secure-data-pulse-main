@@ -5,7 +5,7 @@ This backend provides a custom OTP (One-Time Password) system for phone number a
 ## Features
 
 - ✅ **Custom OTP Generation & Verification**
-- ✅ **Phone Number Validation** (with NumVerify integration)
+- ✅ **Phone Number Validation** (basic format validation)
 - ✅ **Firebase Integration** for user management
 - ✅ **Rate Limiting** (3 attempts per OTP)
 - ✅ **OTP Expiry** (5 minutes)
@@ -27,7 +27,7 @@ cp env .env
 ```
 
 Update the following variables:
-- `NUMVERIFY_API_KEY`: Your NumVerify API key (optional, for phone validation)
+
 - `TWILIO_*`: Twilio credentials (for production SMS)
 
 ### 3. Start the Server
@@ -138,11 +138,7 @@ await twilio.messages.create({
 The API supports two validation modes:
 
 1. **Basic Validation** (default): Validates Indian phone number format
-2. **NumVerify Validation** (optional): Validates phone numbers globally using NumVerify API
 
-To enable NumVerify:
-1. Get a free API key from [NumVerify](https://numverify.com/)
-2. Add it to your `.env` file: `NUMVERIFY_API_KEY=your_key_here`
 
 ## Security Features
 
@@ -190,7 +186,7 @@ The server provides detailed logging:
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `PORT` | Server port | No (default: 5000) |
-| `NUMVERIFY_API_KEY` | NumVerify API key | No |
+
 | `TWILIO_ACCOUNT_SID` | Twilio Account SID | No (for production) |
 | `TWILIO_AUTH_TOKEN` | Twilio Auth Token | No (for production) |
 | `TWILIO_PHONE_NUMBER` | Twilio Phone Number | No (for production) |
@@ -198,7 +194,7 @@ The server provides detailed logging:
 ## Next Steps
 
 1. **Test the API** with your React frontend
-2. **Add NumVerify** for better phone validation
+
 3. **Configure Twilio** for production SMS
 4. **Add Redis** for better OTP storage in production
 5. **Add rate limiting** per IP address 

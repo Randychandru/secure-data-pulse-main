@@ -214,6 +214,8 @@ const Onboarding = () => {
                       <Input
                         id="firstName"
                         placeholder="First Name"
+                        value={formData.firstName}
+                        onChange={(e) => updateFormData("firstName", e.target.value)}
                         className={`fintech-input ${errors.firstName ? "border-red-500" : ""}`}
                       />
                       {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
@@ -223,6 +225,8 @@ const Onboarding = () => {
                       <Input
                         id="lastName"
                         placeholder="Last Name"
+                        value={formData.lastName}
+                        onChange={(e) => updateFormData("lastName", e.target.value)}
                         className={`fintech-input ${errors.lastName ? "border-red-500" : ""}`}
                       />
                       {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName}</p>}
@@ -234,6 +238,8 @@ const Onboarding = () => {
                       id="email"
                       type="email"
                       placeholder="Email Address"
+                      value={formData.email}
+                      onChange={(e) => updateFormData("email", e.target.value)}
                       className={`fintech-input ${errors.email ? "border-red-500" : ""}`}
                     />
                     {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
@@ -244,6 +250,8 @@ const Onboarding = () => {
                       id="phone"
                       type="tel"
                       placeholder="Phone Number"
+                      value={formData.phone}
+                      onChange={(e) => updateFormData("phone", e.target.value)}
                       className={`fintech-input ${errors.phone ? "border-red-500" : ""}`}
                     />
                     {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
@@ -254,6 +262,8 @@ const Onboarding = () => {
                       id="dateOfBirth"
                       type="date"
                       placeholder="Date of Birth"
+                      value={formData.dateOfBirth}
+                      onChange={(e) => updateFormData("dateOfBirth", e.target.value)}
                       className={`fintech-input ${errors.dateOfBirth ? "border-red-500" : ""}`}
                     />
                     {errors.dateOfBirth && <p className="text-red-500 text-xs">{errors.dateOfBirth}</p>}
@@ -264,6 +274,8 @@ const Onboarding = () => {
                       <Input
                         id="occupation"
                         placeholder="Occupation"
+                        value={formData.occupation}
+                        onChange={(e) => updateFormData("occupation", e.target.value)}
                         className={`fintech-input ${errors.occupation ? "border-red-500" : ""}`}
                       />
                       {errors.occupation && <p className="text-red-500 text-xs">{errors.occupation}</p>}
@@ -273,6 +285,8 @@ const Onboarding = () => {
                       <Input
                         id="annualIncome"
                         placeholder="Annual Income"
+                        value={formData.annualIncome}
+                        onChange={(e) => updateFormData("annualIncome", e.target.value)}
                         className={`fintech-input ${errors.annualIncome ? "border-red-500" : ""}`}
                       />
                       {errors.annualIncome && <p className="text-red-500 text-xs">{errors.annualIncome}</p>}
@@ -283,6 +297,8 @@ const Onboarding = () => {
                       <Label htmlFor="accountType">Account Type</Label>
                       <select
                         id="accountType"
+                        value={formData.accountType}
+                        onChange={(e) => updateFormData("accountType", e.target.value)}
                         className="fintech-input"
                       >
                         <option value="personal">Personal</option>
@@ -297,6 +313,8 @@ const Onboarding = () => {
                       <Label htmlFor="preferredCurrency">Preferred Currency</Label>
                       <select
                         id="preferredCurrency"
+                        value={formData.preferredCurrency}
+                        onChange={(e) => updateFormData("preferredCurrency", e.target.value)}
                         className="fintech-input"
                       >
                         <option value="INR">Indian Rupee (₹)</option>
@@ -331,6 +349,8 @@ const Onboarding = () => {
                     <Input
                       id="panNumber"
                       placeholder="PAN Number"
+                      value={formData.panNumber}
+                      onChange={(e) => updateFormData("panNumber", e.target.value.toUpperCase())}
                       className={`fintech-input text-center font-mono tracking-wider ${errors.panNumber ? "border-red-500" : ""}`}
                       maxLength={10}
                     />
@@ -350,6 +370,8 @@ const Onboarding = () => {
                     <Input
                       id="address"
                       placeholder="Address"
+                      value={formData.address}
+                      onChange={(e) => updateFormData("address", e.target.value)}
                       className={`fintech-input ${errors.address ? "border-red-500" : ""}`}
                     />
                     {errors.address && <p className="text-red-500 text-xs">{errors.address}</p>}
@@ -360,6 +382,8 @@ const Onboarding = () => {
                       <Input
                         id="city"
                         placeholder="City"
+                        value={formData.city}
+                        onChange={(e) => updateFormData("city", e.target.value)}
                         className={`fintech-input ${errors.city ? "border-red-500" : ""}`}
                       />
                       {errors.city && <p className="text-red-500 text-xs">{errors.city}</p>}
@@ -369,6 +393,8 @@ const Onboarding = () => {
                       <Input
                         id="state"
                         placeholder="State"
+                        value={formData.state}
+                        onChange={(e) => updateFormData("state", e.target.value)}
                         className={`fintech-input ${errors.state ? "border-red-500" : ""}`}
                       />
                       {errors.state && <p className="text-red-500 text-xs">{errors.state}</p>}
@@ -379,6 +405,8 @@ const Onboarding = () => {
                     <Input
                       id="pincode"
                       placeholder="Pincode"
+                      value={formData.pincode}
+                      onChange={(e) => updateFormData("pincode", e.target.value)}
                       className={`fintech-input ${errors.pincode ? "border-red-500" : ""}`}
                       maxLength={6}
                     />
